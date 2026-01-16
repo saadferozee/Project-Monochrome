@@ -70,14 +70,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Background Lines */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-white/10 to-transparent animate-pulse" />
-        <div className="absolute top-0 left-1/2 w-px h-full bg-gradient-to-b from-transparent via-white/10 to-transparent animate-pulse delay-1000" />
-        <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-white/10 to-transparent animate-pulse delay-2000" />
-      </div>
-
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Slides Container */}
       <div className="relative w-full h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
         {slides.map((slide, index) => (
@@ -89,64 +82,70 @@ const Hero = () => {
                 : 'opacity-0 scale-95 z-0'
             }`}
           >
-            <div className="max-w-7xl w-full mx-auto text-center">
-              {/* Brand Logo - Large */}
-              <div className="mb-6 sm:mb-8 animate-fade-in">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wider text-white/90">
-                  &lt;monochrome/&gt;
-                </h2>
-                <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-white/40 to-transparent mx-auto mt-4" />
-              </div>
+            <div className="max-w-7xl w-full mx-auto">
+              {/* Hero Container with Border */}
+              <div className="border border-white/40 bg-black/30 backdrop-blur-sm">
+                <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
+                  {/* Left Side - Logo/Symbol */}
+                  <div className="flex items-center justify-center p-8 sm:p-12 lg:p-16 border-b lg:border-b-0 lg:border-r border-white/40">
+                    <div className="text-center">
+                      {/* Brand Logo */}
+                      <div className="mb-8 animate-fade-in">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wider text-white/90">
+                          &lt;monochrome/&gt;
+                        </h2>
+                        <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-white/40 to-transparent mx-auto mt-4" />
+                      </div>
 
-              {/* Icon */}
-              <div className="mb-8 animate-fade-in">
-                <div className="inline-block border border-white/40 bg-black/30 backdrop-blur-sm p-8 sm:p-12">
-                  <div className="text-6xl sm:text-8xl md:text-9xl font-bold text-white">
-                    {slide.icon}
+                      {/* Icon */}
+                      <div className="animate-fade-in">
+                        <div className="text-8xl sm:text-9xl md:text-[12rem] font-bold text-white">
+                          {slide.icon}
+                        </div>
+                      </div>
+
+                      {/* Slide Counter */}
+                      <div className="mt-8 text-zinc-500 text-sm tracking-wider">
+                        [{String(index + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}]
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Side - Content */}
+                  <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-16 space-y-6">
+                    {/* Subtitle */}
+                    <p className="text-zinc-500 text-xs sm:text-sm tracking-widest uppercase animate-slide-up">
+                      {'>'} {slide.subtitle}
+                    </p>
+
+                    {/* Title */}
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-wider animate-slide-up">
+                      {slide.title}
+                    </h1>
+
+                    {/* Description */}
+                    <p className="text-base sm:text-lg md:text-xl text-zinc-400 leading-relaxed animate-slide-up">
+                      {slide.description}
+                    </p>
+
+                    {/* CTA Buttons */}
+                    <div className="flex flex-col sm:flex-row gap-4 pt-4 animate-slide-up">
+                      <Link
+                        href={slide.link}
+                        className="inline-block bg-white text-black px-6 py-3 text-sm font-bold tracking-wider hover:bg-zinc-200 transition-all hover:scale-105 text-center"
+                      >
+                        [{slide.cta.toUpperCase()}]
+                      </Link>
+                      
+                      <Link
+                        href="/contact"
+                        className="inline-block border border-white text-white px-6 py-3 text-sm font-bold tracking-wider hover:bg-white hover:text-black transition-all hover:scale-105 text-center"
+                      >
+                        [CONTACT_US]
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              {/* Content */}
-              <div className="space-y-6 animate-slide-up">
-                {/* Subtitle */}
-                <p className="text-zinc-500 text-sm sm:text-base tracking-widest uppercase">
-                  {'>'} {slide.subtitle}
-                </p>
-
-                {/* Title */}
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-wider">
-                  {slide.title}
-                </h1>
-
-                {/* Description */}
-                <p className="text-lg sm:text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto leading-relaxed px-4">
-                  {slide.description}
-                </p>
-
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-                  <Link
-                    href={slide.link}
-                    className="inline-block bg-white text-black px-8 py-4 font-bold tracking-wider hover:bg-zinc-200 transition-all hover:scale-105"
-                  >
-                    [{slide.cta.toUpperCase()}]
-                  </Link>
-                  
-                  <Link
-                    href="/contact"
-                    className="inline-block border border-white text-white px-8 py-4 font-bold tracking-wider hover:bg-white hover:text-black transition-all hover:scale-105"
-                  >
-                    [CONTACT_US]
-                  </Link>
-                </div>
-              </div>
-
-              {/* Slide Counter with Branding */}
-              <div className="mt-12 flex items-center justify-center gap-4 text-zinc-600 text-sm tracking-wider">
-                <span className="hidden sm:inline text-zinc-700">&lt;monochrome/&gt;</span>
-                <span className="text-zinc-800">|</span>
-                <span>[{String(index + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}]</span>
               </div>
             </div>
           </div>
@@ -156,7 +155,7 @@ const Hero = () => {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 sm:w-16 sm:h-16 border border-white/40 bg-black/50 backdrop-blur-sm hover:bg-white hover:text-black transition-all hover:scale-110 flex items-center justify-center text-xl sm:text-2xl font-bold"
+        className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 sm:w-14 sm:h-14 border border-white/40 bg-black/50 backdrop-blur-sm hover:bg-white hover:text-black transition-all hover:scale-110 flex items-center justify-center text-xl font-bold"
         aria-label="Previous slide"
       >
         &lt;
@@ -164,7 +163,7 @@ const Hero = () => {
       
       <button
         onClick={nextSlide}
-        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 sm:w-16 sm:h-16 border border-white/40 bg-black/50 backdrop-blur-sm hover:bg-white hover:text-black transition-all hover:scale-110 flex items-center justify-center text-xl sm:text-2xl font-bold"
+        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 sm:w-14 sm:h-14 border border-white/40 bg-black/50 backdrop-blur-sm hover:bg-white hover:text-black transition-all hover:scale-110 flex items-center justify-center text-xl font-bold"
         aria-label="Next slide"
       >
         &gt;
@@ -186,9 +185,6 @@ const Hero = () => {
                   : 'w-8 bg-zinc-600 group-hover:bg-zinc-400'
               }`}
             />
-            {index === currentSlide && (
-              <div className="absolute inset-0 bg-white/20 blur-md" />
-            )}
           </button>
         ))}
       </div>
@@ -197,16 +193,6 @@ const Hero = () => {
       <div className="absolute bottom-8 left-8 z-20 hidden lg:flex items-center gap-3 text-zinc-500 text-sm">
         <div className="w-px h-16 bg-gradient-to-b from-transparent to-white/40 animate-bounce" />
         <span className="rotate-90 tracking-wider">SCROLL</span>
-      </div>
-
-      {/* Brand Logo - Top Right Corner */}
-      <div className="absolute top-24 right-4 sm:right-8 z-20 text-right">
-        <div className="text-2xl sm:text-3xl font-bold tracking-wider text-white/80">
-          &lt;monochrome/&gt;
-        </div>
-        <div className="text-xs sm:text-sm text-zinc-500 tracking-widest mt-1">
-          WEB SOLUTIONS
-        </div>
       </div>
     </section>
   );

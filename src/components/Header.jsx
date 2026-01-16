@@ -2,15 +2,19 @@
 
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import Navbar from './Navbar';
 import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [user, setUser] = useState(null);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const profileRef = useRef(null);
+
+  const isActive = (path) => pathname === path;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -82,9 +86,6 @@ const Header = () => {
                   </button>
                   {showProfileMenu && (
                     <div className="absolute right-0 mt-2 w-48 border border-white bg-black/90 backdrop-blur-xl shadow-2xl z-50">
-                      <Link href="/dashboard" className="block px-4 py-3 text-sm hover:bg-white hover:text-black transition-colors border-b border-zinc-800" onClick={() => setShowProfileMenu(false)}>
-                        DASHBOARD
-                      </Link>
                       <Link href="/profile" className="block px-4 py-3 text-sm hover:bg-white hover:text-black transition-colors border-b border-zinc-800" onClick={() => setShowProfileMenu(false)}>
                         PROFILE
                       </Link>
@@ -123,18 +124,68 @@ const Header = () => {
 
         {showMobileMenu && (
           <div className="md:hidden mt-4 pt-4 border-t border-white/20 space-y-2">
-            <Link href="/" className="block text-zinc-400 hover:text-white transition-colors text-sm tracking-wider py-2" onClick={() => setShowMobileMenu(false)}>HOME</Link>
-            <Link href="/services" className="block text-zinc-400 hover:text-white transition-colors text-sm tracking-wider py-2" onClick={() => setShowMobileMenu(false)}>SERVICES</Link>
-            <Link href="/dashboard" className="block text-zinc-400 hover:text-white transition-colors text-sm tracking-wider py-2" onClick={() => setShowMobileMenu(false)}>DASHBOARD</Link>
-            <Link href="/about" className="block text-zinc-400 hover:text-white transition-colors text-sm tracking-wider py-2" onClick={() => setShowMobileMenu(false)}>ABOUT</Link>
-            <Link href="/contact" className="block text-zinc-400 hover:text-white transition-colors text-sm tracking-wider py-2" onClick={() => setShowMobileMenu(false)}>CONTACT</Link>
+            <Link 
+              href="/" 
+              className={`block text-sm tracking-wider py-2 transition-all ${
+                isActive('/') 
+                  ? 'text-white underline underline-offset-4' 
+                  : 'text-zinc-400 hover:text-white'
+              }`}
+              onClick={() => setShowMobileMenu(false)}
+            >
+              HOME
+            </Link>
+            <Link 
+              href="/services" 
+              className={`block text-sm tracking-wider py-2 transition-all ${
+                isActive('/services') 
+                  ? 'text-white underline underline-offset-4' 
+                  : 'text-zinc-400 hover:text-white'
+              }`}
+              onClick={() => setShowMobileMenu(false)}
+            >
+              SERVICES
+            </Link>
+            <Link 
+              href="/dashboard" 
+              className={`block text-sm tracking-widest py-2 transition-all ${
+                pathname.startsWith('/dashboard') 
+                  ? 'text-white bg-white/10 px-4 py-2 border border-white/40' 
+                  : 'text-white hover:bg-white/5 px-4 py-2 border border-white/20'
+              }`}
+              onClick={() => setShowMobileMenu(false)}
+            >
+              [DASHBOARD]
+            </Link>
+            <Link 
+              href="/about" 
+              className={`block text-sm tracking-wider py-2 transition-all ${
+                isActive('/about') 
+                  ? 'text-white underline underline-offset-4' 
+                  : 'text-zinc-400 hover:text-white'
+              }`}
+              onClick={() => setShowMobileMenu(false)}
+            >
+              ABOUT
+            </Link>
+            <Link 
+              href="/contact" 
+              className={`block text-sm tracking-wider py-2 transition-all ${
+                isActive('/contact') 
+                  ? 'text-white underline underline-offset-4' 
+                  : 'text-zinc-400 hover:text-white'
+              }`}
+              onClick={() => setShowMobileMenu(false)}
+            >
+              CONTACT
+            </Link>
             {user ? (
               <>
-                <Link href="/profile" className="block border border-white text-white px-4 py-2 text-sm font-bold tracking-wider hover:bg-white hover:text-black transition-colors text-center mt-3" onClick={() => setShowMobileMenu(false)}>{user.name}</Link>
-                <button onClick={() => { handleLogout(); setShowMobileMenu(false); }} className="w-full border border-red-500 text-red-500 px-4 py-2 text-sm font-bold tracking-wider hover:bg-red-900 hover:text-white transition-colors">LOGOUT</button>
+                <Link href="/profile" className="block border border-white text-white px-4 py-2 text-sm tracking-wider hover:bg-white hover:text-black transition-colors text-center mt-3" onClick={() => setShowMobileMenu(false)}>{user.name}</Link>
+                <button onClick={() => { handleLogout(); setShowMobileMenu(false); }} className="w-full border border-red-500 text-red-500 px-4 py-2 text-sm tracking-wider hover:bg-red-900 hover:text-white transition-colors">LOGOUT</button>
               </>
             ) : (
-              <Link href="/login" className="block border border-white text-white px-4 py-2 text-sm font-bold tracking-wider hover:bg-white hover:text-black transition-colors text-center mt-3" onClick={() => setShowMobileMenu(false)}>[LOGIN]</Link>
+              <Link href="/login" className="block border border-white text-white px-4 py-2 text-sm tracking-wider hover:bg-white hover:text-black transition-colors text-center mt-3" onClick={() => setShowMobileMenu(false)}>[LOGIN]</Link>
             )}
           </div>
         )}
