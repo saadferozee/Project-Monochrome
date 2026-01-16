@@ -3,13 +3,14 @@
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
+import { useAuth } from '@/contexts/AuthContext';
 import Navbar from './Navbar';
 import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   const pathname = usePathname();
+  const { user, logout } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [user, setUser] = useState(null);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const profileRef = useRef(null);
@@ -20,19 +21,6 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-
-    // Get user from cookie - moved outside to avoid cascading renders
-    const cookies = document.cookie.split(';');
-    const userCookie = cookies.find(c => c.trim().startsWith('user='));
-    if (userCookie) {
-      try {
-        const userData = JSON.parse(decodeURIComponent(userCookie.split('=')[1]));
-        // Use setTimeout to defer state update
-        setTimeout(() => setUser(userData), 0);
-      } catch (e) {
-        console.error('Error parsing user cookie:', e);
-      }
-    }
 
     const handleClickOutside = (event) => {
       if (profileRef.current && !profileRef.current.contains(event.target)) {
@@ -50,9 +38,8 @@ const Header = () => {
   }, []);
 
   const handleLogout = () => {
-    document.cookie = 'token=; path=/; max-age=0';
-    document.cookie = 'user=; path=/; max-age=0';
-    window.location.href = '/';
+    logout();
+    setShowProfileMenu(false);
   };
 
   return (
