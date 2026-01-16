@@ -11,11 +11,13 @@ const DashboardLayout = ({ children }) => {
   const { user, loading } = useAuth();
 
   useEffect(() => {
+    // Only redirect after loading is complete and user is definitely not authenticated
     if (!loading && !user) {
       router.push('/login');
     }
   }, [user, loading, router]);
 
+  // Show loading state while checking authentication
   if (loading) {
     return (
       <div className="h-screen flex items-center justify-center bg-white dark:bg-black text-black dark:text-white font-mono">
@@ -24,8 +26,13 @@ const DashboardLayout = ({ children }) => {
     );
   }
 
+  // Don't render anything if not authenticated (will redirect)
   if (!user) {
-    return null;
+    return (
+      <div className="h-screen flex items-center justify-center bg-white dark:bg-black text-black dark:text-white font-mono">
+        <div className="text-2xl animate-pulse">[REDIRECTING...]</div>
+      </div>
+    );
   }
 
   return (

@@ -19,6 +19,17 @@ export const AuthProvider = ({ children }) => {
   const router = useRouter();
 
   useEffect(() => {
+    // Check if we have user data in localStorage first (faster)
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      try {
+        setUser(JSON.parse(storedUser));
+      } catch (e) {
+        console.error('Error parsing stored user:', e);
+      }
+    }
+    
+    // Then verify with server
     checkAuth();
   }, []);
 
@@ -27,6 +38,7 @@ export const AuthProvider = ({ children }) => {
       const token = localStorage.getItem('token');
       if (!token) {
         setLoading(false);
+        setUser(null);
         return;
       }
 
@@ -47,7 +59,11 @@ export const AuthProvider = ({ children }) => {
       }
     } catch (error) {
       console.error('Auth check failed:', error);
-      setUser(null);
+      // Don't clear user on network error, keep cached data
+      const storedUser = localStorage.getItem('user');
+      if (!storedUser) {
+        setUser(null);
+      }
     } finally {
       setLoading(false);
     }
