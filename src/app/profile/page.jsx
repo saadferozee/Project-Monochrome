@@ -2,12 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useAuth } from '@/contexts/AuthContext';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 const ProfilePage = () => {
   const router = useRouter();
-  const [user, setUser] = useState(null);
+  const { user: authUser, loading: authLoading } = useAuth();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
@@ -33,28 +34,18 @@ const ProfilePage = () => {
   });
 
   useEffect(() => {
-    // Get user from cookie
-    const cookies = document.cookie.split(';');
-    const userCookie = cookies.find(c => c.trim().startsWith('user='));
-    
-    if (!userCookie) {
+    if (!authLoading && !authUser) {
       router.push('/login');
-      return;
     }
-
-    try {
-      const userData = JSON.parse(decodeURIComponent(userCookie.split('=')[1]));
-      setUser(userData);
+    
+    if (authUser) {
       setFormData(prev => ({
         ...prev,
-        name: userData.name || '',
-        contact: userData.contact || ''
+        name: authUser.name || '',
+        contact: authUser.contact || ''
       }));
-    } catch (e) {
-      console.error('Error parsing user cookie:', e);
-      router.push('/login');
     }
-  }, [router]);
+  }, [authUser, authLoading, router]);
 
   const handleChange = (e) => {
     setFormData({
@@ -75,10 +66,9 @@ const ProfilePage = () => {
       setEditMode({ ...editMode, name: false });
       setLoading(false);
       
-      // Update cookie
-      const updatedUser = { ...user, name: formData.name };
-      document.cookie = `user=${JSON.stringify(updatedUser)}; path=/; max-age=2592000`;
-      setUser(updatedUser);
+      // Update localStorage
+      const updatedUser = { ...authUser, name: formData.name };
+      localStorage.setItem('user', JSON.stringify(updatedUser));
       
       setTimeout(() => setSuccess(''), 3000);
     }, 1000);
@@ -129,10 +119,18 @@ const ProfilePage = () => {
     }, 1000);
   };
 
-  if (!user) {
+  if (authLoading) {
     return (
       <div className="min-h-screen bg-black text-white font-mono flex items-center justify-center">
         <div className="text-2xl animate-pulse">[LOADING...]</div>
+      </div>
+    );
+  }
+
+  if (!authUser) {
+    return (
+      <div className="min-h-screen bg-black text-white font-mono flex items-center justify-center">
+        <div className="text-2xl animate-pulse">[REDIRECTING...]</div>
       </div>
     );
   }
@@ -209,7 +207,7 @@ const ProfilePage = () => {
                       type="button"
                       onClick={() => {
                         setEditMode({ ...editMode, name: false });
-                        setFormData({ ...formData, name: user.name });
+                        setFormData({ ...formData, name: authUser.name });
                       }}
                       className="border border-white px-4 sm:px-6 py-1 sm:py-2 text-sm sm:text-base font-bold hover:bg-white hover:text-black transition-colors"
                       disabled={loading}
@@ -219,7 +217,7 @@ const ProfilePage = () => {
                   </div>
                 </form>
               ) : (
-                <p className="text-lg sm:text-xl text-zinc-400">{user.name}</p>
+                <p className="text-lg sm:text-xl text-zinc-400">{authUser.name}</p>
               )}
             </div>
 
@@ -262,7 +260,7 @@ const ProfilePage = () => {
                       type="button"
                       onClick={() => {
                         setEditMode({ ...editMode, contact: false });
-                        setFormData({ ...formData, contact: user.contact || '' });
+                        setFormData({ ...formData, contact: authUser.contact || '' });
                       }}
                       className="border border-white px-4 sm:px-6 py-1 sm:py-2 text-sm sm:text-base font-bold hover:bg-white hover:text-black transition-colors"
                       disabled={loading}
@@ -283,7 +281,7 @@ const ProfilePage = () => {
               <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 tracking-wider">
                 {'>'} EMAIL
               </h2>
-              <p className="text-lg sm:text-xl text-zinc-400 break-all">{user.email}</p>
+              <p className="text-lg sm:text-xl text-zinc-400 break-all">{authUser.email}</p>
               <p className="text-xs sm:text-sm text-zinc-600 mt-2">Email cannot be changed</p>
             </div>
 
