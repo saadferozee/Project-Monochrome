@@ -132,7 +132,7 @@ const BookingModal = ({ isOpen, onClose, service }) => {
             <h2 className="text-3xl sm:text-4xl font-bold mb-2 tracking-wider text-black dark:text-white">
               BOOK SERVICE
             </h2>
-            <p className="text-black/60 dark:text-zinc-400 text-sm sm:text-base">
+            <p className="opacity-60 text-sm sm:text-base">
               {service?.name}
             </p>
             <div className="h-px w-24 bg-black/20 dark:bg-white/20 mt-4" />
@@ -156,7 +156,7 @@ const BookingModal = ({ isOpen, onClose, service }) => {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Name */}
             <div>
-              <label className="block text-xs sm:text-sm mb-2 text-black/60 dark:text-zinc-400 tracking-wider">
+              <label className="block text-xs sm:text-sm mb-2 opacity-60 tracking-wider">
                 {'>'} FULL NAME *
               </label>
               <input
@@ -177,7 +177,7 @@ const BookingModal = ({ isOpen, onClose, service }) => {
             {/* Email & Phone */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs sm:text-sm mb-2 text-black/60 dark:text-zinc-400 tracking-wider">
+                <label className="block text-xs sm:text-sm mb-2 opacity-60 tracking-wider">
                   {'>'} EMAIL *
                 </label>
                 <input
@@ -196,7 +196,7 @@ const BookingModal = ({ isOpen, onClose, service }) => {
               </div>
 
               <div>
-                <label className="block text-xs sm:text-sm mb-2 text-black/60 dark:text-zinc-400 tracking-wider">
+                <label className="block text-xs sm:text-sm mb-2 opacity-60 tracking-wider">
                   {'>'} PHONE *
                 </label>
                 <input
@@ -214,7 +214,7 @@ const BookingModal = ({ isOpen, onClose, service }) => {
 
             {/* Company */}
             <div>
-              <label className="block text-xs sm:text-sm mb-2 text-black/60 dark:text-zinc-400 tracking-wider">
+              <label className="block text-xs sm:text-sm mb-2 opacity-60 tracking-wider">
                 {'>'} COMPANY (Optional)
               </label>
               <input
@@ -230,7 +230,7 @@ const BookingModal = ({ isOpen, onClose, service }) => {
 
             {/* Project Description */}
             <div>
-              <label className="block text-xs sm:text-sm mb-2 text-black/60 dark:text-zinc-400 tracking-wider">
+              <label className="block text-xs sm:text-sm mb-2 opacity-60 tracking-wider">
                 {'>'} PROJECT DESCRIPTION *
               </label>
               <textarea
@@ -248,7 +248,7 @@ const BookingModal = ({ isOpen, onClose, service }) => {
             {/* Budget & Timeline */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs sm:text-sm mb-2 text-black/60 dark:text-zinc-400 tracking-wider">
+                <label className="block text-xs sm:text-sm mb-2 opacity-60 tracking-wider">
                   {'>'} BUDGET *
                 </label>
                 <select
@@ -269,7 +269,7 @@ const BookingModal = ({ isOpen, onClose, service }) => {
               </div>
 
               <div>
-                <label className="block text-xs sm:text-sm mb-2 text-black/60 dark:text-zinc-400 tracking-wider">
+                <label className="block text-xs sm:text-sm mb-2 opacity-60 tracking-wider">
                   {'>'} TIMELINE *
                 </label>
                 <select

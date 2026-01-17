@@ -52,7 +52,7 @@ const Header = () => {
     >
       <div className="max-w-7xl mx-auto px-4 py-3 md:py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-base sm:text-lg md:text-xl font-bold tracking-wider hover:text-zinc-300 transition-colors">
+          <Link href="/" className="text-base sm:text-lg md:text-xl font-bold tracking-wider hover:opacity-80 transition-colors">
             <span className="text-white">&lt;</span>
             <span className="text-white">monochrome</span>
             <span className="text-white">/&gt;</span>
@@ -73,7 +73,7 @@ const Header = () => {
                   </button>
                   {showProfileMenu && (
                     <div className="absolute right-0 mt-2 w-48 border border-white bg-black/90 backdrop-blur-xl shadow-2xl z-50">
-                      <Link href="/profile" className="block px-4 py-3 text-sm hover:bg-white hover:text-black transition-colors border-b border-zinc-800" onClick={() => setShowProfileMenu(false)}>
+                      <Link href="/profile" className="block px-4 py-3 text-sm hover:bg-white hover:text-black transition-colors border-b border-white/20" onClick={() => setShowProfileMenu(false)}>
                         PROFILE
                       </Link>
                       <button onClick={handleLogout} className="w-full text-left px-4 py-3 text-sm hover:bg-red-900 hover:text-white transition-colors border-t border-red-900 text-red-500">
@@ -115,8 +115,8 @@ const Header = () => {
               href="/" 
               className={`block text-sm tracking-wider py-2 transition-all ${
                 isActive('/') 
-                  ? 'text-white underline underline-offset-4' 
-                  : 'text-zinc-400 hover:text-white'
+                  ? 'underline underline-offset-4' 
+                  : 'opacity-60 hover:opacity-100'
               }`}
               onClick={() => setShowMobileMenu(false)}
             >
@@ -126,8 +126,8 @@ const Header = () => {
               href="/services" 
               className={`block text-sm tracking-wider py-2 transition-all ${
                 isActive('/services') 
-                  ? 'text-white underline underline-offset-4' 
-                  : 'text-zinc-400 hover:text-white'
+                  ? 'underline underline-offset-4' 
+                  : 'opacity-60 hover:opacity-100'
               }`}
               onClick={() => setShowMobileMenu(false)}
             >
@@ -148,8 +148,8 @@ const Header = () => {
               href="/about" 
               className={`block text-sm tracking-wider py-2 transition-all ${
                 isActive('/about') 
-                  ? 'text-white underline underline-offset-4' 
-                  : 'text-zinc-400 hover:text-white'
+                  ? 'underline underline-offset-4' 
+                  : 'opacity-60 hover:opacity-100'
               }`}
               onClick={() => setShowMobileMenu(false)}
             >
@@ -159,8 +159,8 @@ const Header = () => {
               href="/contact" 
               className={`block text-sm tracking-wider py-2 transition-all ${
                 isActive('/contact') 
-                  ? 'text-white underline underline-offset-4' 
-                  : 'text-zinc-400 hover:text-white'
+                  ? 'underline underline-offset-4' 
+                  : 'opacity-60 hover:opacity-100'
               }`}
               onClick={() => setShowMobileMenu(false)}
             >

@@ -70,11 +70,11 @@ const LoginPage = () => {
               <span className="text-white">]</span>
             </h1>
           </Link>
-          <p className="text-black/90 dark:text-white/90 text-sm tracking-widest">WEB SOLUTIONS</p>
+          <p className="text-sm tracking-widest">WEB SOLUTIONS</p>
         </div>
 
         {/* Login Box */}
-        <div className="border border-zinc-800 bg-black/50 backdrop-blur-sm p-8 relative">
+        <div className="border border-white/20 bg-black/50 backdrop-blur-sm p-8 relative">
           {/* Corner decorations */}
           <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-white" />
           <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-white" />
@@ -84,7 +84,7 @@ const LoginPage = () => {
           {/* Header */}
           <div className="mb-6">
             <h2 className="text-2xl font-bold mb-1 tracking-wide">ACCESS_TERMINAL</h2>
-            <p className="text-black/90 dark:text-white/90 text-sm">{'>'} Enter credentials to continue</p>
+            <p className="text-sm">{'>'} Enter credentials to continue</p>
           </div>
 
           {/* Error Message */}
@@ -98,7 +98,7 @@ const LoginPage = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Email Field */}
             <div>
-              <label className="block text-sm mb-2 text-black/90 dark:text-white/90">
+              <label className="block text-sm mb-2">
                 {'>'} EMAIL_ADDRESS
               </label>
               <input
@@ -107,7 +107,7 @@ const LoginPage = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full bg-black border border-zinc-700 px-4 py-3 text-white focus:border-white focus:outline-none transition-colors font-mono"
+                className="w-full bg-black border border-white/20 px-4 py-3 text-white focus:border-white focus:outline-none transition-colors font-mono"
                 placeholder="user@domain.com"
                 disabled={loading}
               />
@@ -115,7 +115,7 @@ const LoginPage = () => {
 
             {/* Password Field */}
             <div>
-              <label className="block text-sm mb-2 text-black/90 dark:text-white/90">
+              <label className="block text-sm mb-2">
                 {'>'} PASSWORD
               </label>
               <div className="relative">
@@ -125,14 +125,14 @@ const LoginPage = () => {
                   value={formData.password}
                   onChange={handleChange}
                   required
-                  className="w-full bg-black border border-zinc-700 px-4 py-3 pr-12 text-white focus:border-white focus:outline-none transition-colors font-mono"
+                  className="w-full bg-black border border-white/20 px-4 py-3 pr-12 text-white focus:border-white focus:outline-none transition-colors font-mono"
                   placeholder="••••••••"
                   disabled={loading}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-black/90 dark:text-white/90 hover:text-white transition-colors"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 hover:opacity-80 transition-colors"
                   disabled={loading}
                 >
                   {showPassword ? (
@@ -153,17 +153,17 @@ const LoginPage = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-white text-black py-3 px-6 font-bold tracking-wider hover:bg-zinc-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
+              className="w-full bg-white text-black py-3 px-6 font-bold tracking-wider hover:bg-white/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
             >
               <span className="relative z-10">
                 {loading ? '[AUTHENTICATING...]' : '[AUTHENTICATE]'}
               </span>
-              <div className="absolute inset-0 bg-zinc-800 transform translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
+              <div className="absolute inset-0 bg-white/20 transform translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
             </button>
 
             {/* Quick Login Buttons */}
-            <div className="pt-4 border-t border-black/20 dark:border-white/20">
-              <p className="text-black/90 dark:text-white/90 text-xs mb-3 text-center">
+            <div className="pt-4 border-t border-white/20">
+              <p className="text-xs mb-3 text-center">
                 {'>'} QUICK_LOGIN
               </p>
               <div className="grid grid-cols-2 gap-3">
@@ -171,7 +171,7 @@ const LoginPage = () => {
                   type="button"
                   onClick={() => quickLogin('admin@monochrome.com', 'Admin@123')}
                   disabled={loading}
-                  className="border border-zinc-700 text-white py-2 px-4 text-sm font-bold tracking-wider hover:border-white hover:bg-white hover:text-black transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="border border-white/20 text-white py-2 px-4 text-sm font-bold tracking-wider hover:border-white hover:bg-white hover:text-black transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   [ADMIN]
                 </button>
@@ -180,7 +180,7 @@ const LoginPage = () => {
                   type="button"
                   onClick={() => quickLogin('user@testing.com', 'User@123')}
                   disabled={loading}
-                  className="border border-zinc-700 text-white py-2 px-4 text-sm font-bold tracking-wider hover:border-white hover:bg-white hover:text-black transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="border border-white/20 text-white py-2 px-4 text-sm font-bold tracking-wider hover:border-white hover:bg-white hover:text-black transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   [USER]
                 </button>
@@ -189,7 +189,7 @@ const LoginPage = () => {
           </form>
 
           {/* Footer Links */}
-          <div className="mt-6 pt-6 border-t border-black/20 dark:border-white/20 text-center text-sm text-black/90 dark:text-white/90">
+          <div className="mt-6 pt-6 border-t border-white/20 text-center text-sm">
             <p>
               {'>'} New user?{' '}
               <Link href="/register" className="text-white hover:underline">
@@ -206,8 +206,8 @@ const LoginPage = () => {
         </div>
 
         {/* Test Credentials Info */}
-        <div className="mt-6 p-4 border border-black/20 dark:border-white/20 bg-black/10 dark:bg-white/10 text-xs text-black/90 dark:text-white/90">
-          <p className="text-black/90 dark:text-white/90 mb-2">{'>'} TEST_CREDENTIALS:</p>
+        <div className="mt-6 p-4 border border-white/20 bg-white/10 text-xs">
+          <p className="mb-2">{'>'} TEST_CREDENTIALS:</p>
           <p>Admin: admin@monochrome.com / admin123</p>
           <p>User: user@test.com / test123</p>
         </div>

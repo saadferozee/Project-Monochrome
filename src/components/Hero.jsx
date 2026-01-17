@@ -72,7 +72,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Slides Container */}
-      <div className="relative w-full h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      <div className="relative w-full flex items-center justify-center px-4 sm:px-6 lg:px-8">
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -93,7 +93,7 @@ const Hero = () => {
                       <div className="mb-8 animate-fade-in">
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wider flex flex-col items-center">
                           &lt;monochrome/&gt; 
-                          <span className='text-gray-400 text-xl sm:text-2xl md:text-4xl'>web solutions</span>
+                          <span className='opacity-60 text-xl sm:text-2xl md:text-4xl'>web solutions</span>
                         </h2>
                         <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-white/40 to-transparent mx-auto mt-4" />
                       </div>
@@ -106,7 +106,7 @@ const Hero = () => {
                       </div>
 
                       {/* Slide Counter */}
-                      <div className="mt-8 text-black/90 dark:text-white/90 text-sm tracking-wider">
+                      <div className="mt-8 text-sm tracking-wider">
                         [{String(index + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}]
                       </div>
                     </div>
@@ -115,7 +115,7 @@ const Hero = () => {
                   {/* Right Side - Content */}
                   <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-16 space-y-6">
                     {/* Subtitle */}
-                    <p className="text-black/90 dark:text-white/90 text-xs sm:text-sm tracking-widest uppercase animate-slide-up">
+                    <p className="text-xs sm:text-sm tracking-widest uppercase animate-slide-up">
                       {'>'} {slide.subtitle}
                     </p>
 
@@ -125,7 +125,7 @@ const Hero = () => {
                     </h1>
 
                     {/* Description */}
-                    <p className="text-base sm:text-lg md:text-xl text-black/90 dark:text-white/90 leading-relaxed animate-slide-up">
+                    <p className="text-base sm:text-lg md:text-xl leading-relaxed animate-slide-up">
                       {slide.description}
                     </p>
 
@@ -133,7 +133,7 @@ const Hero = () => {
                     <div className="flex flex-col sm:flex-row gap-4 pt-4 animate-slide-up">
                       <Link
                         href={slide.link}
-                        className="inline-block bg-white text-black px-6 py-3 text-sm font-bold tracking-wider hover:bg-zinc-200 transition-all hover:scale-105 text-center"
+                        className="inline-block bg-white text-black px-6 py-3 text-sm font-bold tracking-wider hover:bg-white/80 transition-all hover:scale-105 text-center"
                       >
                         [{slide.cta.toUpperCase()}]
                       </Link>
@@ -183,7 +183,7 @@ const Hero = () => {
               className={`h-1 transition-all duration-500 ${
                 index === currentSlide
                   ? 'w-16 bg-white'
-                  : 'w-8 bg-zinc-600 group-hover:bg-zinc-400'
+                  : 'w-8 opacity-40 group-hover:opacity-60'
               }`}
             />
           </button>
@@ -191,7 +191,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-8 z-20 hidden lg:flex items-center gap-3 text-black/90 dark:text-white/90 text-sm">
+      <div className="absolute bottom-8 left-8 z-20 hidden lg:flex items-center gap-3 text-sm">
         <div className="w-px h-16 bg-gradient-to-b from-transparent to-white/40 animate-bounce" />
         <span className="rotate-90 tracking-wider">SCROLL</span>
       </div>

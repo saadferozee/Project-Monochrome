@@ -73,17 +73,17 @@ const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
               <div className="border border-white/40 p-6 sm:p-8 bg-black/50 backdrop-blur-sm text-center hover:bg-white hover:text-black hover:border-black hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300">
                 <div className="text-4xl sm:text-5xl font-bold mb-2">{stats.projects}+</div>
-                <div className="text-black/90 dark:text-white/90 tracking-wider text-xs sm:text-sm">PROJECTS_COMPLETED</div>
+                <div className="tracking-wider text-xs sm:text-sm">PROJECTS_COMPLETED</div>
               </div>
               
               <div className="border border-white/40 p-6 sm:p-8 bg-black/50 backdrop-blur-sm text-center hover:bg-white hover:text-black hover:border-black hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300">
                 <div className="text-4xl sm:text-5xl font-bold mb-2">{stats.clients}+</div>
-                <div className="text-black/90 dark:text-white/90 tracking-wider text-xs sm:text-sm">HAPPY_CLIENTS</div>
+                <div className="tracking-wider text-xs sm:text-sm">HAPPY_CLIENTS</div>
               </div>
               
               <div className="border border-white/40 p-6 sm:p-8 bg-black/50 backdrop-blur-sm text-center hover:bg-white hover:text-black hover:border-black hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300">
                 <div className="text-4xl sm:text-5xl font-bold mb-2">{stats.satisfaction}%</div>
-                <div className="text-black/90 dark:text-white/90 tracking-wider text-xs sm:text-sm">SATISFACTION_RATE</div>
+                <div className="tracking-wider text-xs sm:text-sm">SATISFACTION_RATE</div>
               </div>
             </div>
           </div>
@@ -96,7 +96,7 @@ const Home = () => {
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 tracking-wider break-words">
                 {'>'} FEATURED SERVICES
               </h2>
-              <p className="text-zinc-500 text-base sm:text-lg">
+              <p className="opacity-60 text-base sm:text-lg">
                 Our most popular and eye-catching solutions
               </p>
             </div>
@@ -116,7 +116,7 @@ const Home = () => {
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 tracking-wider break-words">
                 {'>'} FREQUENTLY REQUESTED SERVICES
               </h2>
-              <p className="text-zinc-500 text-base sm:text-lg">
+              <p className="opacity-60 text-base sm:text-lg">
                 Professional solutions for modern digital challenges
               </p>
             </div>
@@ -145,7 +145,7 @@ const Home = () => {
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 tracking-wider break-words">
                 {'>'} WHY WE ARE DIFFERENT
               </h2>
-              <p className="text-zinc-500 text-base sm:text-lg">
+              <p className="opacity-60 text-base sm:text-lg">
                 What sets us apart from the competition
               </p>
             </div>
@@ -154,7 +154,7 @@ const Home = () => {
               <div className="border border-white bg-black/50 p-6 sm:p-8">
                 <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">[01]</div>
                 <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">FUTURISTIC_APPROACH</h3>
-                <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
+                <p className="opacity-60 text-sm sm:text-base leading-relaxed">
                   We don't just follow trends—we create them. Our minimalist, terminal-inspired design philosophy sets us apart in a world of cluttered interfaces.
                 </p>
               </div>
@@ -162,7 +162,7 @@ const Home = () => {
               <div className="border border-white bg-black/50 p-6 sm:p-8">
                 <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">[02]</div>
                 <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">SECURITY_FIRST</h3>
-                <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
+                <p className="opacity-60 text-sm sm:text-base leading-relaxed">
                   Every line of code is written with security in mind. We conduct thorough audits and penetration testing to ensure your data stays protected.
                 </p>
               </div>
@@ -170,7 +170,7 @@ const Home = () => {
               <div className="border border-white bg-black/50 p-6 sm:p-8">
                 <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">[03]</div>
                 <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">PERFORMANCE_OBSESSED</h3>
-                <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
+                <p className="opacity-60 text-sm sm:text-base leading-relaxed">
                   Speed matters. We optimize every pixel and every byte to deliver lightning-fast experiences that keep your users engaged.
                 </p>
               </div>
@@ -178,7 +178,7 @@ const Home = () => {
               <div className="border border-white bg-black/50 p-6 sm:p-8">
                 <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">[04]</div>
                 <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">24/7_SUPPORT</h3>
-                <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
+                <p className="opacity-60 text-sm sm:text-base leading-relaxed">
                   We're always here when you need us. Our dedicated support team works around the clock to ensure your success.
                 </p>
               </div>
@@ -193,40 +193,40 @@ const Home = () => {
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 tracking-wider break-words">
                 {'>'} OUR PROCESS
               </h2>
-              <p className="text-zinc-500 text-base sm:text-lg">
+              <p className="opacity-60 text-base sm:text-lg">
                 A systematic approach to delivering excellence
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
               <div className="border border-white/40 p-5 sm:p-6 bg-black/50 hover:bg-white hover:text-black hover:border-black hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 group text-center">
-                <div className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-zinc-500">[01]</div>
+                <div className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 opacity-60">[01]</div>
                 <h3 className="text-lg sm:text-xl font-bold mb-2">DISCOVER</h3>
-                <p className="text-zinc-500 text-xs sm:text-sm">
+                <p className="opacity-60 text-xs sm:text-sm">
                   Understanding your needs and goals
                 </p>
               </div>
               
               <div className="border border-white/40 p-5 sm:p-6 bg-black/50 hover:bg-white hover:text-black hover:border-black hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 group text-center">
-                <div className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-zinc-500">[02]</div>
+                <div className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 opacity-60">[02]</div>
                 <h3 className="text-lg sm:text-xl font-bold mb-2">DESIGN</h3>
-                <p className="text-zinc-500 text-xs sm:text-sm">
+                <p className="opacity-60 text-xs sm:text-sm">
                   Creating the perfect solution
                 </p>
               </div>
               
               <div className="border border-white/40 p-5 sm:p-6 bg-black/50 hover:bg-white hover:text-black hover:border-black hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 group text-center">
-                <div className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-zinc-500">[03]</div>
+                <div className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 opacity-60">[03]</div>
                 <h3 className="text-lg sm:text-xl font-bold mb-2">DEVELOP</h3>
-                <p className="text-zinc-500 text-xs sm:text-sm">
+                <p className="opacity-60 text-xs sm:text-sm">
                   Building with precision and care
                 </p>
               </div>
               
               <div className="border border-white/40 p-5 sm:p-6 bg-black/50 hover:bg-white hover:text-black hover:border-black hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 group text-center">
-                <div className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-zinc-500">[04]</div>
+                <div className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 opacity-60">[04]</div>
                 <h3 className="text-lg sm:text-xl font-bold mb-2">DELIVER</h3>
-                <p className="text-zinc-500 text-xs sm:text-sm">
+                <p className="opacity-60 text-xs sm:text-sm">
                   Launching your success
                 </p>
               </div>
@@ -241,7 +241,7 @@ const Home = () => {
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 tracking-wider break-words">
                 {'>'} CLIENT TESTIMONIALS
               </h2>
-              <p className="text-zinc-500 text-base sm:text-lg">
+              <p className="opacity-60 text-base sm:text-lg">
                 What our clients say about us
               </p>
             </div>
@@ -250,39 +250,39 @@ const Home = () => {
               <div className="border border-white/40 p-5 sm:p-6 bg-black/50 hover:bg-white hover:text-black hover:border-black hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 group">
                 <div className="mb-4">
                   <div className="text-xl sm:text-2xl mb-2">★★★★★</div>
-                  <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
+                  <p className="opacity-60 text-sm sm:text-base leading-relaxed">
                     "Exceptional work! The team delivered beyond our expectations. Highly professional and innovative."
                   </p>
                 </div>
-                <div className="pt-4 border-t border-zinc-800">
+                <div className="pt-4 border-t border-white/20">
                   <p className="font-bold text-sm sm:text-base">Sarah Johnson</p>
-                  <p className="text-zinc-500 text-xs sm:text-sm">CEO, TechCorp</p>
+                  <p className="opacity-60 text-xs sm:text-sm">CEO, TechCorp</p>
                 </div>
               </div>
 
               <div className="border border-white/40 p-5 sm:p-6 bg-black/50 hover:bg-white hover:text-black hover:border-black hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 group">
                 <div className="mb-4">
                   <div className="text-xl sm:text-2xl mb-2">★★★★★</div>
-                  <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
+                  <p className="opacity-60 text-sm sm:text-base leading-relaxed">
                     "Outstanding service and support. They transformed our digital presence completely."
                   </p>
                 </div>
-                <div className="pt-4 border-t border-zinc-800">
+                <div className="pt-4 border-t border-white/20">
                   <p className="font-bold text-sm sm:text-base">Michael Chen</p>
-                  <p className="text-zinc-500 text-xs sm:text-sm">Founder, StartupX</p>
+                  <p className="opacity-60 text-xs sm:text-sm">Founder, StartupX</p>
                 </div>
               </div>
 
               <div className="border border-white/40 p-5 sm:p-6 bg-black/50 hover:bg-white hover:text-black hover:border-black hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 group">
                 <div className="mb-4">
                   <div className="text-xl sm:text-2xl mb-2">★★★★★</div>
-                  <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
+                  <p className="opacity-60 text-sm sm:text-base leading-relaxed">
                     "Best decision we made. Professional, efficient, and results-driven team."
                   </p>
                 </div>
-                <div className="pt-4 border-t border-zinc-800">
+                <div className="pt-4 border-t border-white/20">
                   <p className="font-bold text-sm sm:text-base">Emily Rodriguez</p>
-                  <p className="text-zinc-500 text-xs sm:text-sm">Director, InnovateLab</p>
+                  <p className="opacity-60 text-xs sm:text-sm">Director, InnovateLab</p>
                 </div>
               </div>
             </div>
@@ -296,14 +296,14 @@ const Home = () => {
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 tracking-wider break-words">
                 {'>'} READY TO START?
               </h2>
-              <p className="text-zinc-400 text-sm sm:text-base md:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto">
+              <p className="opacity-60 text-sm sm:text-base md:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto">
                 Let's build something amazing together. Get in touch with our team and transform your digital presence.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-8">
                 <Link
                   href="/services"
-                  className="inline-block bg-white text-black px-6 sm:px-8 py-3 sm:py-4 font-bold text-sm sm:text-base tracking-wider hover:bg-zinc-200 transition-colors"
+                  className="inline-block bg-white text-black px-6 sm:px-8 py-3 sm:py-4 font-bold text-sm sm:text-base tracking-wider hover:bg-white/80 transition-colors"
                 >
                   [VIEW_SERVICES]
                 </Link>
@@ -318,15 +318,15 @@ const Home = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12 text-left">
                 <div className="border border-white/40 p-4 sm:p-6">
-                  <h4 className="font-bold mb-2 text-zinc-400 text-xs sm:text-sm">EMAIL</h4>
+                  <h4 className="font-bold mb-2 opacity-60 text-xs sm:text-sm">EMAIL</h4>
                   <p className="text-white text-sm sm:text-base break-all">contact@monochromeweb.com</p>
                 </div>
                 <div className="border border-white/40 p-4 sm:p-6">
-                  <h4 className="font-bold mb-2 text-zinc-400 text-xs sm:text-sm">PHONE</h4>
+                  <h4 className="font-bold mb-2 opacity-60 text-xs sm:text-sm">PHONE</h4>
                   <p className="text-white text-sm sm:text-base">+880 12345 67890</p>
                 </div>
                 <div className="border border-white/40 p-4 sm:p-6">
-                  <h4 className="font-bold mb-2 text-zinc-400 text-xs sm:text-sm">SUPPORT</h4>
+                  <h4 className="font-bold mb-2 opacity-60 text-xs sm:text-sm">SUPPORT</h4>
                   <p className="text-white text-sm sm:text-base">24/7 Available</p>
                 </div>
               </div>

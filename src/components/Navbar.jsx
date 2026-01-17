@@ -14,8 +14,8 @@ const Navbar = () => {
         href="/" 
         className={`cursor-pointer text-sm tracking-wider transition-all ${
           isActive('/') 
-            ? 'text-white underline underline-offset-4' 
-            : 'text-zinc-400 hover:text-white'
+            ? 'underline underline-offset-4' 
+            : 'opacity-60 hover:opacity-100'
         }`}
       >
         HOME
@@ -24,8 +24,8 @@ const Navbar = () => {
         href="/services" 
         className={`cursor-pointer text-sm tracking-wider transition-all ${
           isActive('/services') 
-            ? 'text-white underline underline-offset-4' 
-            : 'text-zinc-400 hover:text-white'
+            ? 'underline underline-offset-4' 
+            : 'opacity-60 hover:opacity-100'
         }`}
       >
         SERVICES
@@ -34,8 +34,8 @@ const Navbar = () => {
         href="/about" 
         className={`cursor-pointer text-sm tracking-wider transition-all ${
           isActive('/about') 
-            ? 'text-white underline underline-offset-4' 
-            : 'text-zinc-400 hover:text-white'
+            ? 'underline underline-offset-4' 
+            : 'opacity-60 hover:opacity-100'
         }`}
       >
         ABOUT
@@ -44,8 +44,8 @@ const Navbar = () => {
         href="/contact" 
         className={`cursor-pointer text-sm tracking-wider transition-all ${
           isActive('/contact') 
-            ? 'text-white underline underline-offset-4' 
-            : 'text-zinc-400 hover:text-white'
+            ? 'underline underline-offset-4' 
+            : 'opacity-60 hover:opacity-100'
         }`}
       >
         CONTACT

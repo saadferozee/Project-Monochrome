@@ -96,11 +96,11 @@ const RegisterPage = () => {
               <span className="text-white">]</span>
             </h1>
           </Link>
-          <p className="text-black/90 dark:text-white/90 text-sm tracking-widest">WEB SOLUTIONS</p>
+          <p className="text-sm tracking-widest">WEB SOLUTIONS</p>
         </div>
 
         {/* Register Box */}
-        <div className="border border-zinc-800 bg-black/50 backdrop-blur-sm p-8 relative">
+        <div className="border border-white/20 bg-black/50 backdrop-blur-sm p-8 relative">
           {/* Corner decorations */}
           <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-white" />
           <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-white" />
@@ -110,7 +110,7 @@ const RegisterPage = () => {
           {/* Header */}
           <div className="mb-6">
             <h2 className="text-2xl font-bold mb-1 tracking-wide">CREATE_ACCOUNT</h2>
-            <p className="text-black/90 dark:text-white/90 text-sm">{'>'} Register new user credentials</p>
+            <p className="text-sm">{'>'} Register new user credentials</p>
           </div>
 
           {/* Error Message */}
@@ -124,7 +124,7 @@ const RegisterPage = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Name Field */}
             <div>
-              <label className="block text-sm mb-2 text-black/90 dark:text-white/90">
+              <label className="block text-sm mb-2">
                 {'>'} FULL_NAME
               </label>
               <input
@@ -141,7 +141,7 @@ const RegisterPage = () => {
 
             {/* Email Field */}
             <div>
-              <label className="block text-sm mb-2 text-black/90 dark:text-white/90">
+              <label className="block text-sm mb-2">
                 {'>'} EMAIL_ADDRESS
               </label>
               <input
@@ -150,7 +150,7 @@ const RegisterPage = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full bg-black border border-zinc-700 px-4 py-3 text-white focus:border-white focus:outline-none transition-colors font-mono"
+                className="w-full bg-black border border-white/20 px-4 py-3 text-white focus:border-white focus:outline-none transition-colors font-mono"
                 placeholder="user@example.com"
                 disabled={loading}
               />
@@ -158,7 +158,7 @@ const RegisterPage = () => {
 
             {/* Password Field */}
             <div>
-              <label className="block text-sm mb-2 text-black/90 dark:text-white/90">
+              <label className="block text-sm mb-2">
                 {'>'} PASSWORD
               </label>
               <div className="relative">
@@ -168,14 +168,14 @@ const RegisterPage = () => {
                   value={formData.password}
                   onChange={handleChange}
                   required
-                  className="w-full bg-black border border-zinc-700 px-4 py-3 pr-12 text-white focus:border-white focus:outline-none transition-colors font-mono"
+                  className="w-full bg-black border border-white/20 px-4 py-3 pr-12 text-white focus:border-white focus:outline-none transition-colors font-mono"
                   placeholder="••••••••"
                   disabled={loading}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white transition-colors"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 hover:opacity-80 transition-colors"
                   disabled={loading}
                 >
                   {showPassword ? (
@@ -195,42 +195,42 @@ const RegisterPage = () => {
               {formData.password && (
                 <div className="mt-3 space-y-2">
                   <div className="flex items-center gap-2 text-xs">
-                    <span className={passwordStrength.hasMinLength ? 'text-green-500' : 'text-black/90 dark:text-white/90'}>
+                    <span className={passwordStrength.hasMinLength ? 'text-green-500' : 'opacity-60'}>
                       {passwordStrength.hasMinLength ? '[✓]' : '[✗]'}
                     </span>
-                    <span className={passwordStrength.hasMinLength ? 'text-black/90 dark:text-white/90' : 'text-black/60 dark:text-white/60'}>
+                    <span className={passwordStrength.hasMinLength ? '' : 'opacity-60'}>
                       At least 6 characters
                     </span>
                   </div>
                   <div className="flex items-center gap-2 text-xs">
-                    <span className={passwordStrength.hasUpperCase ? 'text-green-500' : 'text-zinc-600'}>
+                    <span className={passwordStrength.hasUpperCase ? 'text-green-500' : 'opacity-60'}>
                       {passwordStrength.hasUpperCase ? '[✓]' : '[✗]'}
                     </span>
-                    <span className={passwordStrength.hasUpperCase ? 'text-zinc-400' : 'text-zinc-600'}>
+                    <span className={passwordStrength.hasUpperCase ? '' : 'opacity-60'}>
                       One uppercase letter (A-Z)
                     </span>
                   </div>
                   <div className="flex items-center gap-2 text-xs">
-                    <span className={passwordStrength.hasLowerCase ? 'text-green-500' : 'text-zinc-600'}>
+                    <span className={passwordStrength.hasLowerCase ? 'text-green-500' : 'opacity-60'}>
                       {passwordStrength.hasLowerCase ? '[✓]' : '[✗]'}
                     </span>
-                    <span className={passwordStrength.hasLowerCase ? 'text-zinc-400' : 'text-zinc-600'}>
+                    <span className={passwordStrength.hasLowerCase ? '' : 'opacity-60'}>
                       One lowercase letter (a-z)
                     </span>
                   </div>
                   <div className="flex items-center gap-2 text-xs">
-                    <span className={passwordStrength.hasNumber ? 'text-green-500' : 'text-zinc-600'}>
+                    <span className={passwordStrength.hasNumber ? 'text-green-500' : 'opacity-60'}>
                       {passwordStrength.hasNumber ? '[✓]' : '[✗]'}
                     </span>
-                    <span className={passwordStrength.hasNumber ? 'text-zinc-400' : 'text-zinc-600'}>
+                    <span className={passwordStrength.hasNumber ? '' : 'opacity-60'}>
                       One number (0-9)
                     </span>
                   </div>
                   <div className="flex items-center gap-2 text-xs">
-                    <span className={passwordStrength.hasSpecialChar ? 'text-green-500' : 'text-zinc-600'}>
+                    <span className={passwordStrength.hasSpecialChar ? 'text-green-500' : 'opacity-60'}>
                       {passwordStrength.hasSpecialChar ? '[✓]' : '[✗]'}
                     </span>
-                    <span className={passwordStrength.hasSpecialChar ? 'text-zinc-400' : 'text-zinc-600'}>
+                    <span className={passwordStrength.hasSpecialChar ? '' : 'opacity-60'}>
                       One special character (!@#$%^&*)
                     </span>
                   </div>
@@ -240,7 +240,7 @@ const RegisterPage = () => {
 
             {/* Confirm Password Field */}
             <div>
-              <label className="block text-sm mb-2 text-black/90 dark:text-white/90">
+              <label className="block text-sm mb-2">
                 {'>'} CONFIRM_PASSWORD
               </label>
               <div className="relative">
@@ -250,14 +250,14 @@ const RegisterPage = () => {
                   value={formData.confirmPassword}
                   onChange={handleChange}
                   required
-                  className="w-full bg-black border border-zinc-700 px-4 py-3 pr-12 text-white focus:border-white focus:outline-none transition-colors font-mono"
+                  className="w-full bg-black border border-white/20 px-4 py-3 pr-12 text-white focus:border-white focus:outline-none transition-colors font-mono"
                   placeholder="••••••••"
                   disabled={loading}
                 />
                 <button
                   type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white transition-colors"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 hover:opacity-80 transition-colors"
                   disabled={loading}
                 >
                   {showConfirmPassword ? (
@@ -289,17 +289,17 @@ const RegisterPage = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-white text-black py-3 px-6 font-bold tracking-wider hover:bg-zinc-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
+              className="w-full bg-white text-black py-3 px-6 font-bold tracking-wider hover:bg-white/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
             >
               <span className="relative z-10">
                 {loading ? '[CREATING_ACCOUNT...]' : '[CREATE_ACCOUNT]'}
               </span>
-              <div className="absolute inset-0 bg-zinc-800 transform translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
+              <div className="absolute inset-0 bg-white/20 transform translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
             </button>
           </form>
 
           {/* Footer Links */}
-          <div className="mt-6 pt-6 border-t border-black/20 dark:border-white/20 text-center text-sm text-black/90 dark:text-white/90">
+          <div className="mt-6 pt-6 border-t border-white/20 text-center text-sm">
             <p>
               {'>'} Already have an account?{' '}
               <Link href="/login" className="text-white hover:underline">
