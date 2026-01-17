@@ -9,7 +9,7 @@ const ServiceCard = ({ service, featured = false }) => {
       }`}
     >
       <div className="mb-4">
-        <div className="text-sm text-zinc-500 group-hover:text-zinc-700 mb-2 tracking-wider transition-colors">
+        <div className="text-sm text-black/90 dark:text-white/90 group-hover:text-black/70 dark:group-hover:text-white/70 mb-2 tracking-wider transition-colors">
           {service.category.toUpperCase()}
         </div>
         <h3 className={`font-bold mb-3 group-hover:text-black transition-colors ${
@@ -17,7 +17,7 @@ const ServiceCard = ({ service, featured = false }) => {
         }`}>
           {service.name}
         </h3>
-        <p className={`text-zinc-500 group-hover:text-zinc-700 leading-relaxed transition-colors ${
+        <p className={`text-black/90 dark:text-white/90 group-hover:text-black/70 dark:group-hover:text-white/70 leading-relaxed transition-colors ${
           featured ? 'line-clamp-3' : 'line-clamp-2'
         }`}>
           {service.description}
@@ -30,7 +30,7 @@ const ServiceCard = ({ service, featured = false }) => {
         }`}>
           ${service.price.toLocaleString()}
         </span>
-        <span className="text-zinc-500 group-hover:text-zinc-700 text-sm transition-all group-hover:translate-x-1">
+        <span className="text-black/90 dark:text-white/90 group-hover:text-black/70 dark:group-hover:text-white/70 text-sm transition-all group-hover:translate-x-1">
           {'>'} LEARN_MORE
         </span>
       </div>

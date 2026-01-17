@@ -19,7 +19,7 @@ const Hero = () => {
       title: "UI/UX DESIGN",
       subtitle: "Crafting Beautiful Experiences",
       description: "Create intuitive and stunning user interfaces that engage your audience and drive conversions.",
-      icon: "[ ]",
+      icon: "[❖]",
       cta: "View Portfolio",
       link: "/services"
     },
@@ -42,7 +42,7 @@ const Hero = () => {
     {
       title: "API DEVELOPMENT",
       subtitle: "Robust Backend Systems",
-      description: "Build powerful APIs and microservices that power your applications with reliability and performance.",
+      description:"Build powerful APIs and microservices that power your applications with reliability and performance.",
       icon: "{}",
       cta: "Discover More",
       link: "/services"
@@ -91,8 +91,9 @@ const Hero = () => {
                     <div className="text-center">
                       {/* Brand Logo */}
                       <div className="mb-8 animate-fade-in">
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wider text-white/90">
-                          &lt;monochrome/&gt;
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wider flex flex-col items-center">
+                          &lt;monochrome/&gt; 
+                          <span className='text-gray-400 text-xl sm:text-2xl md:text-4xl'>web solutions</span>
                         </h2>
                         <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-white/40 to-transparent mx-auto mt-4" />
                       </div>
@@ -105,7 +106,7 @@ const Hero = () => {
                       </div>
 
                       {/* Slide Counter */}
-                      <div className="mt-8 text-zinc-500 text-sm tracking-wider">
+                      <div className="mt-8 text-black/90 dark:text-white/90 text-sm tracking-wider">
                         [{String(index + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}]
                       </div>
                     </div>
@@ -114,7 +115,7 @@ const Hero = () => {
                   {/* Right Side - Content */}
                   <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-16 space-y-6">
                     {/* Subtitle */}
-                    <p className="text-zinc-500 text-xs sm:text-sm tracking-widest uppercase animate-slide-up">
+                    <p className="text-black/90 dark:text-white/90 text-xs sm:text-sm tracking-widest uppercase animate-slide-up">
                       {'>'} {slide.subtitle}
                     </p>
 
@@ -124,7 +125,7 @@ const Hero = () => {
                     </h1>
 
                     {/* Description */}
-                    <p className="text-base sm:text-lg md:text-xl text-zinc-400 leading-relaxed animate-slide-up">
+                    <p className="text-base sm:text-lg md:text-xl text-black/90 dark:text-white/90 leading-relaxed animate-slide-up">
                       {slide.description}
                     </p>
 
@@ -190,7 +191,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-8 z-20 hidden lg:flex items-center gap-3 text-zinc-500 text-sm">
+      <div className="absolute bottom-8 left-8 z-20 hidden lg:flex items-center gap-3 text-black/90 dark:text-white/90 text-sm">
         <div className="w-px h-16 bg-gradient-to-b from-transparent to-white/40 animate-bounce" />
         <span className="rotate-90 tracking-wider">SCROLL</span>
       </div>

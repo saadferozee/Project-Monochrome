@@ -73,17 +73,17 @@ const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
               <div className="border border-white/40 p-6 sm:p-8 bg-black/50 backdrop-blur-sm text-center hover:bg-white hover:text-black hover:border-black hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300">
                 <div className="text-4xl sm:text-5xl font-bold mb-2">{stats.projects}+</div>
-                <div className="text-zinc-500 tracking-wider text-xs sm:text-sm">PROJECTS_COMPLETED</div>
+                <div className="text-black/90 dark:text-white/90 tracking-wider text-xs sm:text-sm">PROJECTS_COMPLETED</div>
               </div>
               
               <div className="border border-white/40 p-6 sm:p-8 bg-black/50 backdrop-blur-sm text-center hover:bg-white hover:text-black hover:border-black hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300">
                 <div className="text-4xl sm:text-5xl font-bold mb-2">{stats.clients}+</div>
-                <div className="text-zinc-500 tracking-wider text-xs sm:text-sm">HAPPY_CLIENTS</div>
+                <div className="text-black/90 dark:text-white/90 tracking-wider text-xs sm:text-sm">HAPPY_CLIENTS</div>
               </div>
               
               <div className="border border-white/40 p-6 sm:p-8 bg-black/50 backdrop-blur-sm text-center hover:bg-white hover:text-black hover:border-black hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300">
                 <div className="text-4xl sm:text-5xl font-bold mb-2">{stats.satisfaction}%</div>
-                <div className="text-zinc-500 tracking-wider text-xs sm:text-sm">SATISFACTION_RATE</div>
+                <div className="text-black/90 dark:text-white/90 tracking-wider text-xs sm:text-sm">SATISFACTION_RATE</div>
               </div>
             </div>
           </div>

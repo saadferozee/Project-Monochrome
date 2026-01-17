@@ -70,7 +70,7 @@ const LoginPage = () => {
               <span className="text-white">]</span>
             </h1>
           </Link>
-          <p className="text-zinc-500 text-sm tracking-widest">WEB SOLUTIONS</p>
+          <p className="text-black/90 dark:text-white/90 text-sm tracking-widest">WEB SOLUTIONS</p>
         </div>
 
         {/* Login Box */}
@@ -84,7 +84,7 @@ const LoginPage = () => {
           {/* Header */}
           <div className="mb-6">
             <h2 className="text-2xl font-bold mb-1 tracking-wide">ACCESS_TERMINAL</h2>
-            <p className="text-zinc-500 text-sm">{'>'} Enter credentials to continue</p>
+            <p className="text-black/90 dark:text-white/90 text-sm">{'>'} Enter credentials to continue</p>
           </div>
 
           {/* Error Message */}
@@ -98,7 +98,7 @@ const LoginPage = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Email Field */}
             <div>
-              <label className="block text-sm mb-2 text-zinc-400">
+              <label className="block text-sm mb-2 text-black/90 dark:text-white/90">
                 {'>'} EMAIL_ADDRESS
               </label>
               <input
@@ -115,7 +115,7 @@ const LoginPage = () => {
 
             {/* Password Field */}
             <div>
-              <label className="block text-sm mb-2 text-zinc-400">
+              <label className="block text-sm mb-2 text-black/90 dark:text-white/90">
                 {'>'} PASSWORD
               </label>
               <div className="relative">
@@ -132,7 +132,7 @@ const LoginPage = () => {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white transition-colors"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-black/90 dark:text-white/90 hover:text-white transition-colors"
                   disabled={loading}
                 >
                   {showPassword ? (
@@ -162,8 +162,8 @@ const LoginPage = () => {
             </button>
 
             {/* Quick Login Buttons */}
-            <div className="pt-4 border-t border-zinc-800">
-              <p className="text-zinc-500 text-xs mb-3 text-center">
+            <div className="pt-4 border-t border-black/20 dark:border-white/20">
+              <p className="text-black/90 dark:text-white/90 text-xs mb-3 text-center">
                 {'>'} QUICK_LOGIN
               </p>
               <div className="grid grid-cols-2 gap-3">
@@ -189,7 +189,7 @@ const LoginPage = () => {
           </form>
 
           {/* Footer Links */}
-          <div className="mt-6 pt-6 border-t border-zinc-800 text-center text-sm text-zinc-500">
+          <div className="mt-6 pt-6 border-t border-black/20 dark:border-white/20 text-center text-sm text-black/90 dark:text-white/90">
             <p>
               {'>'} New user?{' '}
               <Link href="/register" className="text-white hover:underline">
@@ -206,8 +206,8 @@ const LoginPage = () => {
         </div>
 
         {/* Test Credentials Info */}
-        <div className="mt-6 p-4 border border-zinc-800 bg-zinc-900/50 text-xs text-zinc-500">
-          <p className="font-bold text-zinc-400 mb-2">{'>'} TEST_CREDENTIALS:</p>
+        <div className="mt-6 p-4 border border-black/20 dark:border-white/20 bg-black/10 dark:bg-white/10 text-xs text-black/90 dark:text-white/90">
+          <p className="text-black/90 dark:text-white/90 mb-2">{'>'} TEST_CREDENTIALS:</p>
           <p>Admin: admin@monochrome.com / admin123</p>
           <p>User: user@test.com / test123</p>
         </div>
