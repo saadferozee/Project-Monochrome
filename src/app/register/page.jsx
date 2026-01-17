@@ -96,7 +96,7 @@ const RegisterPage = () => {
               <span className="text-white">]</span>
             </h1>
           </Link>
-          <p className="text-zinc-500 text-sm tracking-widest">WEB SOLUTIONS</p>
+          <p className="text-black/90 dark:text-white/90 text-sm tracking-widest">WEB SOLUTIONS</p>
         </div>
 
         {/* Register Box */}
@@ -110,7 +110,7 @@ const RegisterPage = () => {
           {/* Header */}
           <div className="mb-6">
             <h2 className="text-2xl font-bold mb-1 tracking-wide">CREATE_ACCOUNT</h2>
-            <p className="text-zinc-500 text-sm">{'>'} Register new user credentials</p>
+            <p className="text-black/90 dark:text-white/90 text-sm">{'>'} Register new user credentials</p>
           </div>
 
           {/* Error Message */}
@@ -124,7 +124,7 @@ const RegisterPage = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Name Field */}
             <div>
-              <label className="block text-sm mb-2 text-zinc-400">
+              <label className="block text-sm mb-2 text-black/90 dark:text-white/90">
                 {'>'} FULL_NAME
               </label>
               <input
@@ -141,7 +141,7 @@ const RegisterPage = () => {
 
             {/* Email Field */}
             <div>
-              <label className="block text-sm mb-2 text-zinc-400">
+              <label className="block text-sm mb-2 text-black/90 dark:text-white/90">
                 {'>'} EMAIL_ADDRESS
               </label>
               <input
@@ -158,7 +158,7 @@ const RegisterPage = () => {
 
             {/* Password Field */}
             <div>
-              <label className="block text-sm mb-2 text-zinc-400">
+              <label className="block text-sm mb-2 text-black/90 dark:text-white/90">
                 {'>'} PASSWORD
               </label>
               <div className="relative">
@@ -195,10 +195,10 @@ const RegisterPage = () => {
               {formData.password && (
                 <div className="mt-3 space-y-2">
                   <div className="flex items-center gap-2 text-xs">
-                    <span className={passwordStrength.hasMinLength ? 'text-green-500' : 'text-zinc-600'}>
+                    <span className={passwordStrength.hasMinLength ? 'text-green-500' : 'text-black/90 dark:text-white/90'}>
                       {passwordStrength.hasMinLength ? '[✓]' : '[✗]'}
                     </span>
-                    <span className={passwordStrength.hasMinLength ? 'text-zinc-400' : 'text-zinc-600'}>
+                    <span className={passwordStrength.hasMinLength ? 'text-black/90 dark:text-white/90' : 'text-black/60 dark:text-white/60'}>
                       At least 6 characters
                     </span>
                   </div>
@@ -240,7 +240,7 @@ const RegisterPage = () => {
 
             {/* Confirm Password Field */}
             <div>
-              <label className="block text-sm mb-2 text-zinc-400">
+              <label className="block text-sm mb-2 text-black/90 dark:text-white/90">
                 {'>'} CONFIRM_PASSWORD
               </label>
               <div className="relative">
@@ -299,7 +299,7 @@ const RegisterPage = () => {
           </form>
 
           {/* Footer Links */}
-          <div className="mt-6 pt-6 border-t border-zinc-800 text-center text-sm text-zinc-500">
+          <div className="mt-6 pt-6 border-t border-black/20 dark:border-white/20 text-center text-sm text-black/90 dark:text-white/90">
             <p>
               {'>'} Already have an account?{' '}
               <Link href="/login" className="text-white hover:underline">
