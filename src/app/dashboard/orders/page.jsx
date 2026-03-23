@@ -11,45 +11,24 @@ const OrdersPage = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const userData = localStorage.getItem('user');
-    if (userData) {
-      fetchBookings();
-    } else {
-      setLoading(false);
-    }
+    fetchBookings();
   }, []);
 
   const fetchBookings = async () => {
-    const userData = localStorage.getItem('user');
-    if (!userData) {
-      setLoading(false);
-      return;
-    }
-
     try {
-      const user = JSON.parse(userData);
-      console.log('Fetching bookings for user:', user.email);
-      console.log('API URL:', process.env.NEXT_PUBLIC_API_URL);
-      
+      const token = localStorage.getItem('token');
+      if (!token) { setLoading(false); return; }
+
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/bookings/my-bookings`, {
-        headers: {
-          'Authorization': `Bearer ${user.token}`
-        }
+        headers: { Authorization: `Bearer ${token}` }
       });
-      
-      console.log('Response status:', response.status);
       const data = await response.json();
-      console.log('Response data:', data);
-      
       if (response.ok) {
         setBookings(data.data || []);
-        console.log('Bookings loaded:', data.data?.length || 0);
       } else {
-        console.error('Failed to fetch bookings:', data.message);
         setError(data.message || 'Failed to load bookings');
       }
     } catch (error) {
-      console.error('Error fetching bookings:', error);
       setError('Connection error. Please try again.');
     } finally {
       setLoading(false);
@@ -126,12 +105,9 @@ const OrdersPage = () => {
         ) : error ? (
           <div className="flex items-center justify-center h-full">
             <div className="text-center">
-              <p className="text-xl font-bold mb-4 text-red-600 dark:text-red-500">[ERROR]</p>
-              <p className="text-zinc-500 dark:text-zinc-400 mb-6">{error}</p>
-              <button
-                onClick={fetchBookings}
-                className="inline-block bg-black dark:bg-white text-white dark:text-black px-6 py-3 font-bold tracking-wider hover:bg-black/80 dark:hover:bg-white/80 transition-colors"
-              >
+              <p className="text-xl font-bold mb-4">[ERROR]</p>
+              <p className="opacity-60 mb-6">{error}</p>
+              <button onClick={fetchBookings} className="bg-black dark:bg-white text-white dark:text-black px-6 py-3 font-bold tracking-wider hover:opacity-80 transition-opacity">
                 [RETRY]
               </button>
             </div>
@@ -140,13 +116,10 @@ const OrdersPage = () => {
           <div className="flex items-center justify-center h-full">
             <div className="text-center">
               <p className="text-xl font-bold mb-4">NO ORDERS FOUND</p>
-              <p className="text-zinc-500 dark:text-zinc-400 mb-6">
-                {filter === 'all' ? 'You haven&apos;t made any bookings yet' : `No ${filter} orders`}
+              <p className="opacity-60 mb-6">
+                {filter === 'all' ? "You haven't made any bookings yet" : `No ${filter} orders`}
               </p>
-              <Link
-                href="/services"
-                className="inline-block bg-black dark:bg-white text-white dark:text-black px-6 py-3 font-bold tracking-wider hover:bg-black/80 dark:hover:bg-white/80 transition-colors"
-              >
+              <Link href="/services" className="inline-block bg-black dark:bg-white text-white dark:text-black px-6 py-3 font-bold tracking-wider hover:opacity-80 transition-opacity">
                 [BROWSE SERVICES]
               </Link>
             </div>
@@ -167,25 +140,25 @@ const OrdersPage = () => {
                       </span>
                     </div>
 
-                    <div className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
-                      <p><span className="font-bold text-black dark:text-white">Order ID:</span> {booking._id}</p>
-                      <p><span className="font-bold text-black dark:text-white">Date:</span> {new Date(booking.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-                      <p><span className="font-bold text-black dark:text-white">Budget:</span> {booking.budget}</p>
-                      <p><span className="font-bold text-black dark:text-white">Timeline:</span> {booking.timeline}</p>
-                      {booking.company && <p><span className="font-bold text-black dark:text-white">Company:</span> {booking.company}</p>}
+                    <div className="space-y-2 text-sm opacity-60">
+                      <p><span className="font-bold opacity-100">Order ID:</span> {booking._id}</p>
+                      <p><span className="font-bold opacity-100">Date:</span> {new Date(booking.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                      <p><span className="font-bold opacity-100">Budget:</span> {booking.budget}</p>
+                      <p><span className="font-bold opacity-100">Timeline:</span> {booking.timeline}</p>
+                      {booking.company && <p><span className="font-bold opacity-100">Company:</span> {booking.company}</p>}
                     </div>
 
                     {booking.projectDescription && (
                       <div className="mt-4 pt-4 border-t border-black/10 dark:border-white/10">
                         <p className="text-sm font-bold mb-2">PROJECT DESCRIPTION:</p>
-                        <p className="text-sm text-zinc-600 dark:text-zinc-400">{booking.projectDescription}</p>
+                        <p className="text-sm opacity-60">{booking.projectDescription}</p>
                       </div>
                     )}
 
                     {booking.adminNotes && (
                       <div className="mt-4 pt-4 border-t border-black/10 dark:border-white/10">
                         <p className="text-sm font-bold mb-2">ADMIN NOTES:</p>
-                        <p className="text-sm text-zinc-600 dark:text-zinc-400">{booking.adminNotes}</p>
+                        <p className="text-sm opacity-60">{booking.adminNotes}</p>
                       </div>
                     )}
                   </div>
