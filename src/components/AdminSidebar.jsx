@@ -13,6 +13,7 @@ const AdminSidebar = () => {
     { path: '/dashboard/bookings', label: 'BOOKINGS', icon: '📦' },
     { path: '/dashboard/services', label: 'SERVICES', icon: '🛠️' },
     { path: '/dashboard/users', label: 'USERS', icon: '👥' },
+    { path: '/dashboard/asks', label: 'CUSTOMER ASKS', icon: '💬' },
   ];
 
   return (

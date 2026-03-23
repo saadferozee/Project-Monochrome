@@ -18,14 +18,25 @@ const ContactPage = () => {
     e.preventDefault();
     setLoading(true);
 
-    // Simulate sending message
-    setTimeout(() => {
-      setSuccess(true);
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      const data = await response.json();
+      if (data.success) {
+        setSuccess(true);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setTimeout(() => setSuccess(false), 5000);
+      } else {
+        alert(data.message || 'Failed to send message');
+      }
+    } catch (err) {
+      alert('Connection error. Please try again.');
+    } finally {
       setLoading(false);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      
-      setTimeout(() => setSuccess(false), 5000);
-    }, 1500);
+    }
   };
 
   const handleChange = (e) => {

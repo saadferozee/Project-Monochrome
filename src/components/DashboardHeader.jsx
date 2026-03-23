@@ -7,7 +7,7 @@ const DashboardHeader = ({ title, description, children }) => {
             {title}
           </h1>
           {description && (
-            <p className="text-sm text-zinc-500 dark:text-zinc-400">
+            <p className="text-sm opacity-60">
               {description}
             </p>
           )}

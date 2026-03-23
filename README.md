@@ -1,6 +1,6 @@
 # Monochrome Web Solutions - Frontend
 
-Next.js 14 web application with monochrome design theme.
+Next.js 14 web application with monochrome design theme. first thing first. safety first.
 
 ## Quick Start
 

@@ -13,6 +13,7 @@ const DashboardSidebar = () => {
     { path: '/dashboard/stats', label: 'STATISTICS', icon: '📈' },
     { path: '/dashboard/orders', label: 'ORDERS', icon: '📦' },
     { path: '/dashboard/payments', label: 'PAYMENTS', icon: '💳' },
+    { path: '/dashboard/messages', label: 'MESSAGES', icon: '💬' },
   ];
 
   return (
